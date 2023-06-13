@@ -1,5 +1,5 @@
 # recipe finder
- I created a recipe finder site where you can search for any recipe with the ingredients you have in your refrigerator.
+ I created a recipe finder site(using Html, CSS and Javascript) where you can search for any recipe with the ingredients you have in your refrigerator.
  
  On inputing your ingredient, various dishes you can create with the ingredient are displayed.
 
