@@ -11,6 +11,6 @@
  
  I'm glad I was able to strengthen my API fetching muscles through this project, thanks to Mr Phillip who challenged us to try it.
  
- still learning though
+ still learning though. Still working on responsiveness too.
 
  live demo: https://ceccy-ope.github.io/recipe-finder/
