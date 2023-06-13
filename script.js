@@ -1,8 +1,12 @@
 let btn1 = document.getElementById("btn1");
 
+//assigning variables to the data to be received
 const mealNameList = [];
 const mealImageList = [];
 const mealIdList = [];
+
+
+//API fetching for the various dishes that can be cooked with the input ingredient
 
 function func() {
   let search = document.getElementById("ingredient").value;
@@ -48,40 +52,51 @@ function func() {
           eachMeal.classList.add("card");
         }
       }
+
+      // returning the searchbox to its empty state after an input of ingredient
+
       document.getElementById("ingredient").value = "";
       document.getElementById("ingredient").focus();
 
+// targeting each 'get recipe' button for each dish so as to get the preparation details.
+
       let getButton = document.querySelectorAll("#btn2");
-      console.log(getButton);
+     
 
       for (let j = 0; j < getButton.length; j++) {
         getButton[j].addEventListener("click", function () {
           const modal = document.querySelector(".modal");
           const closeButton = document.querySelector(".close-button");
-          const recipeDescription = document.getElementById("recipeDescription");
+          const recipeDescription =
+            document.getElementById("recipeDescription");
 
+          // creating a function to pop up the modal when the get recipe button is clicked
 
           function toggleModal() {
             modal.classList.add("show-modal");
           }
-          toggleModal()
+          toggleModal();
+
+          // creating a function to hide the modal when the close button is clicked
 
           function hideModal() {
             modal.classList.remove("show-modal");
           }
 
+          //creating a function to fetch the meal description API and preparation 
+          //ingredients and video once 'get recipe' is clicked
+
           function showModal() {
-          
             let menuId = mealIdList[j];
-            const mealPrep = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${menuId}`
-              console.log(`the meal is:${mealPrep}`);
+            const mealPrep = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${menuId}`;
             
-              fetch(mealPrep)
-              .then((response)=>{
-                return response.json()
+
+            fetch(mealPrep)
+              .then((response) => {
+                return response.json();
               })
-              .then((data)=>{
-                console.log(data)
+              .then((data) => {
+               
                 recipeDescription.innerHTML = `<h6 style = "text-align:center;">${mealNameList[j]}</h6>
                                               <img style = "width:100px; height: 100px; border-radius:50%; display:block; margin:auto" src=${data.meals[0].strMealThumb}>
                                               <h6>Ingredients</h6>
@@ -111,17 +126,15 @@ function func() {
                                               <p style="font-size:10px;font-weight:100;">${data.meals[0].strInstructions}</p>
                                               <a style = "font-size:10px;" href=${data.meals[0].strYoutube}>Youtube Video</a>
                                               `;
-
               })
-              .catch((error)=>{
+              .catch((error) => {
                 console.log("Error:", error);
+              });
 
-              })
-            
-            
+//creating a function to hide modal if window is clicked
             function windowOnClick(event) {
               if (event.target === modal) {
-               hideModal();
+                hideModal();
               }
             }
 
@@ -130,7 +143,7 @@ function func() {
           }
           showModal();
 
-            // console.log(mealNameList[j], mealImageList[j], mealIdList[j]);
+          // console.log(mealNameList[j], mealImageList[j], mealIdList[j]);
         });
       }
     })
