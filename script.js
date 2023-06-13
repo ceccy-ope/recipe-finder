@@ -28,6 +28,8 @@ function func() {
         var mealId = i.idMeal;
         mealIdList.push(mealId);
 
+        //creating the meal cards
+
         if (mealName != "") {
           let mealList = document.querySelector("ul");
           let eachMeal = document.createElement("li");
@@ -38,6 +40,8 @@ function func() {
                                     <h1>${mealName}</h1>
                                    <button id ='btn2' class="trigger">Get Recipe</button>
                                 </div>`;
+          
+          //styling the cards
 
           mealList.appendChild(eachMeal);
           mealList.classList.add("cardwrapper");
@@ -58,14 +62,15 @@ function func() {
 
 
           function toggleModal() {
-            modal.classList.toggle("show-modal");
+            modal.classList.add("show-modal");
           }
+          toggleModal()
 
           function showModal() {
           
             let menuId = mealIdList[j];
-            const mealPrep = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i= '+' menuId'
-              console.log(`the meal is:${menuId}`);
+            const mealPrep = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${menuId}`
+              console.log(`the meal is:${mealPrep}`);
             
               fetch(mealPrep)
               .then((response)=>{
@@ -92,8 +97,7 @@ function func() {
           }
           showModal();
 
-          alert("hi");
-          console.log(mealNameList[j], mealImageList[j], mealIdList[j]);
+            // console.log(mealNameList[j], mealImageList[j], mealIdList[j]);
         });
       }
     })
