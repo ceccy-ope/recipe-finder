@@ -4,6 +4,8 @@
  On inputing your ingredients, various dishes you can create with the ingredient are displayed.
 
  You then click on get recipe to get the ingredient and preparation details of the particular dish.
+
+ You can as well view the preparation videos of the dishes.
  
  I used themealdb API for the recipes.
  
