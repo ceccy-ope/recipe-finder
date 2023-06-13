@@ -1,9 +1,9 @@
 # recipe finder
  I created a recipe finder site where you can search for any recipe with the ingredients you have in your refrigerator.
  
- On inputing your ingredients, various dishes you can create with the ingredient are displayed.
+ On inputing your ingredient, various dishes you can create with the ingredient are displayed.
 
- You then click on get recipe to get the ingredient and preparation details of the particular dish.
+ You then click on 'get recipe' to get the ingredient and preparation details of the particular dish.
 
  You can as well view the preparation videos of the dishes.
  
